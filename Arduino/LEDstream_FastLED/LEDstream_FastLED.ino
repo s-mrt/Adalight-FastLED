@@ -49,6 +49,7 @@ const uint16_t
 
 // --------------------------------------------------------------------
 
+#define FASTLED_USE_GLOBAL_BRIGHTNESS 1
 #include <FastLED.h>
 
 CRGB leds[Num_Leds];
