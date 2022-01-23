@@ -39,4 +39,10 @@ jobs:
         run: arduino-cli lib install FastLED
 
       - name: Compile Sketch
-        run: arduino-cli compile --fqbn ${{ matrix.fqbn }} Arduino/LEDstream_FastLED/LEDstream_FastLED.ino
+        run: arduino-cli compile -e --fqbn ${{ matrix.fqbn }} Arduino/LEDstream_FastLED/LEDstream_FastLED.ino
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.board }} binaries
+          path: Arduino/LEDstream_FastLED/build/
